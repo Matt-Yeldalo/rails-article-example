@@ -26,4 +26,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Will be used to define the required params needed to create an article
+  private
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
+
 end
