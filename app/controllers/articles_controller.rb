@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   # Get an article by id
-  def get_article_by_id
+  def show
     @article = Article.find(params[:id])
   end
 
@@ -16,8 +16,8 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
-  def create_article
-    @article = Article.new(title: "...", body: "...")
+  def create
+    @article = Article.new(article_params)
 
     if @article.save
       redirect_to @article # redirect_to will cause the browser to make a new request
