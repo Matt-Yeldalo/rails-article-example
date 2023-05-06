@@ -1,8 +1,9 @@
 import request from "../api/request";
 const Service = {
-  getArticles: async () => {
+  getArticles: async (): Promise<IArticle[]> => {
     const res = await request("GET", "/articles", "");
-    return res.data;
+    const articles: IArticle[] = res.data as IArticle[];
+    return articles;
   }
 }
 
