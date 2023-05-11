@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
+
   def create
     @article = Article.new(article_params)
 
@@ -28,8 +29,8 @@ class ArticlesController < ApplicationController
 
   # Will be used to define the required params needed to create an article
   private
-    def article_params
-      params.require(:article).permit(:title, :body)
-    end
 
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
 end
