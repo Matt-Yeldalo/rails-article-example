@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
+  # GET /articles
   def index
     @articles = Article.all
   end
 
-  # Get an article by id
+  # GET /articles/:id
   def show
     @article = Article.find(params[:id])
   end
@@ -17,6 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  # POST /articles
   def create
     @article = Article.new(article_params)
 
@@ -27,7 +29,23 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Renders articles/edit.html.erb
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  # PUT /articles/:id
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to.update(article_params)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
   # Will be used to define the required params needed to create an article
+
   private
 
   def article_params
