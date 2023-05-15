@@ -6,6 +6,8 @@
 
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <!-- turbo_method: :delete changes link from GET to DELETE -->
+  <!-- turbo_confirm: opens dialog confirm box -->
   <li><%= link_to "Destroy", article_path(@article), data: { 
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
